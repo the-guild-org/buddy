@@ -1,4 +1,4 @@
-export function batch<A, R, K>(
+export function batch<A, R>(
   loader: (args: A[]) => Promise<Promise<R>[]>
 ): (arg: A) => Promise<R> {
   let currentBatch: {
