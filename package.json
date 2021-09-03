@@ -1,0 +1,50 @@
+{
+  "name": "@theguild/buddy",
+  "version": "0.0.1",
+  "description": "Helper functions and decorators",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "prebuild": "rimraf dist",
+    "build": "bob build --single",
+    "prepack": "bob prepack",
+    "prerelease": "yarn build",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@types/node": "14.17.14",
+    "bob-the-bundler": "1.5.1",
+    "rimraf": "3.0.2",
+    "tslib": "2.3.1",
+    "typescript": "4.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-guild-org/buddy.git"
+  },
+  "author": {
+    "email": "kamil.kisiela@gmail.com",
+    "name": "Kamil Kisiela",
+    "url": "https://github.com/kamilkisiela"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@changesets/cli": "^2.17.0"
+  }
+}
