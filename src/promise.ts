@@ -47,7 +47,7 @@ const cacheSymbol = Symbol.for("@cache");
 export function cacheResult<TInput>(
   cacheKeyFn: (arg: TInput) => string
 ): MethodDecorator {
-  return (target, propertyKey, descriptor) => {
+  return (_target, _propertyKey, descriptor) => {
     const originalMethod = descriptor.value;
 
     function ensureCache(obj: any): Map<string, any> {
