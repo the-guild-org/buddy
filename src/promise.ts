@@ -42,12 +42,11 @@ export function sharePromise<T>(setter: () => Promise<T>): () => Promise<T> {
   };
 }
 
-const cacheSymbol = Symbol.for("@cache");
-
 export function cacheResult<TInput>(
   cacheKeyFn: (arg: TInput) => string
 ): MethodDecorator {
   return (_target, _propertyKey, descriptor) => {
+    const cacheSymbol = Symbol('@cache');
     const originalMethod = descriptor.value;
 
     function ensureCache(obj: any): Map<string, any> {
