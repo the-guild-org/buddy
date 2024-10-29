@@ -34,6 +34,8 @@ export function batch<A, R>(
               }
             );
           }
+        }).catch(err => {
+          tickCallbacks.forEach(callback => callback.reject(err))
         });
       });
     }
